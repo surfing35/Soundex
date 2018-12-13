@@ -29,8 +29,6 @@ TEST_F(SoundexEncoding, PadsWithZerosToEnsureThreeDigits)
 {
     //Arrange @ class fixture
 
-    //Act
-
     //Assert
     ASSERT_THAT(soundex.encode("I"), Eq("I000"));
 }
@@ -41,8 +39,12 @@ TEST_F(SoundexEncoding, ConvertConsenantwithDefinedDigits)
 
     //Act
 
-    //Assert
+    //Note: EXPECT does not fail test, assert does.
     ASSERT_THAT(soundex.encode("Ab"), Eq("A100"));
+    ASSERT_THAT(soundex.encode("Ac"), Eq("A200"));
+    ASSERT_THAT(soundex.encode("Ad"), Eq("A300"));
+    EXPECT_THAT(soundex.encode("Dn"), Eq("D500"));
+    EXPECT_THAT(soundex.encode("xx"), Eq("x200"));
 }
 
 

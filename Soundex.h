@@ -16,6 +16,7 @@ private:
     string add0Pad(const string& word) const;
     string head(const string& word) const;
     string encodeDigits(const string& word) const;
+    string encodeDigit(char letter) const;
 };
 
 
